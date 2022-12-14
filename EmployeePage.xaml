@@ -1,0 +1,27 @@
+﻿<Page x:Class="Reports.EmployeePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Reports"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EmployeePage">
+
+    <Grid Background="Wheat">
+        <TextBox Name="TextReportTextBox" HorizontalAlignment="Left" Margin="523,67,0,0" TextWrapping="Wrap" Text="Описание отчета" VerticalAlignment="Top" Width="180" Height="158"/>
+        <TextBox Name="HoursReportTextBox" HorizontalAlignment="Left" Margin="553,243,0,0" TextWrapping="Wrap" Text="Кол-во часов" VerticalAlignment="Top" Width="120"/>
+        <Button Name="ReportButton" Content="Отправить" HorizontalAlignment="Left" Margin="582,278,0,0" VerticalAlignment="Top" Click="ReportButton_Click"   />
+        <ListView Name="ReportsList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="24,67,416,219" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Имя" Width="120" x:Name="NameRow" DisplayMemberBinding="{Binding Path=Name}"/>
+                    <GridViewColumn Header="Описание" Width="120" x:Name="DiscriptionRow" DisplayMemberBinding="{Binding Path=Description}" />
+                    <GridViewColumn Header="Часы" Width="100" x:Name="HoursRow" DisplayMemberBinding="{Binding Path=Hours}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Name="RefreshButton" Content="Обновить" HorizontalAlignment="Left" Margin="172,243,0,0" VerticalAlignment="Top" Click="RefreshButton_Click" />
+        <TextBlock x:Name="Salary" HorizontalAlignment="Left" Margin="130,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Background="#FFE3D3D3" Width="142"/>
+    </Grid>
+</Page>

@@ -1,0 +1,42 @@
+﻿<Page x:Class="Reports.HeadPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Reports"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HeadPage">
+
+    <Grid Background="Wheat">
+        <ListView Name="ReportsList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,10,430,276" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Имя" Width="120" x:Name="NameRow" DisplayMemberBinding="{Binding Path=Name}"/>
+                    <GridViewColumn Header="Описание" Width="120" x:Name="DiscriptionRow" DisplayMemberBinding="{Binding Path=Description}" />
+                    <GridViewColumn Header="Часы" Width="100" x:Name="HoursRow" DisplayMemberBinding="{Binding Path=Hours}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Name="Employees" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,209,430,77" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Имя" Width="120" x:Name="EmployeeRow" DisplayMemberBinding="{Binding Path=Name}"/>
+                    <GridViewColumn Header="Должность" Width="120" x:Name="PostRow" DisplayMemberBinding="{Binding Path=Post}" />
+                    <GridViewColumn Header="Зарплата" Width="100" x:Name="SalaryRow" DisplayMemberBinding="{Binding Path=Salary}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Name="RefreshReportsButton" Content="Обновить" HorizontalAlignment="Left" Margin="10,174,0,0" VerticalAlignment="Top" Click="RefreshReportsButton_Click" />
+        <Button Name="RefreshEmployeesButton" Content="Обновить" HorizontalAlignment="Left" Margin="10,378,0,0" VerticalAlignment="Top" Click="RefreshEmployeesButton_Click" />
+        <TextBox Name="NewEmployeeNameTextBox" HorizontalAlignment="Left" Margin="538,10,0,0" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="NewEmployeePostTextBox" HorizontalAlignment="Left" Margin="538,48,0,0" TextWrapping="Wrap" Text="Должность" VerticalAlignment="Top" Width="120"/>
+        <Button Name ="AddEmployeeButton" Content="Добавить" HorizontalAlignment="Left" Margin="538,105,0,0" VerticalAlignment="Top" Click="AddEmployeeButton_Click" />
+        <CheckBox Name="HeadCheck" Content="Руководитель" HorizontalAlignment="Left" Height="16" Margin="538,84,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="SalaryTextBox" HorizontalAlignment="Left" Margin="538,225,0,0" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Top" Width="120"/>
+        <Button Name="SalaryButton" Content="Начислить" HorizontalAlignment="Left" Margin="538,281,0,0" VerticalAlignment="Top" Click="SalaryButton_Click" />
+        <TextBox Name="SalaryCount" HorizontalAlignment="Left" Margin="538,248,0,0" TextWrapping="Wrap" Text="Сумма" VerticalAlignment="Top" Width="120"/>
+        <Button Name="PenaltyButton" Content="Вычесть" HorizontalAlignment="Left" Margin="618,281,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.253,0.186" Click="PenaltyButton_Click" />
+        <Button Name="DeleteEmployeeButton" Content="Удалить" HorizontalAlignment="Left" Margin="618,105,0,0" VerticalAlignment="Top" Click="DeleteEmployeeButton_Click" />
+    </Grid>
+</Page>
